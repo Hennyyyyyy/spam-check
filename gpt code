@@ -45,23 +45,21 @@
 <body>
 
 <header>
-    <h1>Your Website Header</h1>
+    <h1>Junk Email Detection Demo</h1>
 </header>
 
-<nav>
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Contact</a>
-</nav>
 
 <main>
-    <h2>Welcome to Your Website!</h2>
-    <p>This is the main content area of your website. You can add text, images, videos, and more here to showcase your products or services.</p>
+    <h2>Welcome to the Junk Mail detector 4000</h2>
+    <p>The Junk Mail Detector 4000 is a Ai Model trained by both real junk emails and ones produced by chat gpt. While the current ai model is functional with a high accuracy, the future of this project is to allow the ai model to automatically flag junk emails.</p>
+    <div>Input email here to see if its junk or not!</div>
+     <input type="text" id="text-input" style="width: 50%; height: 150px;">
+     
+     <button onclick="detect()">Detect</button>
 </main>
 
 <footer>
-    <p>&copy; 2024 Your Business Name. All rights reserved.</p>
+    <p>&copy; 2024 Junk Checker. All rights reserved.</p>
 </footer>
 
 </body>
