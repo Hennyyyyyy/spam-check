@@ -1,0 +1,10 @@
+def evaluate(y_test,y_pred):
+'''This function is used to evaluate a model on metrics like accuracy,f1 score,f-0.5 score and confusion matrix '''
+print("ACCURACY:", accuracy_score(y_test, y_pred))
+print("F-1 SCORE:", f1_score(y_test, y_pred))
+print("F-0.5 SCORE WEIGHTED:", fbeta_score(y_test, y_pred, average='weighted', beta=0.5))
+print("F-0.5 SCORE MACRO:", fbeta_score(y_test, y_pred, average='macro', beta=0.5))
+print("F-0.5 SCORE MICRO:", fbeta_score(y_test, y_pred, average='micro', beta=0.5))
+print(classification_report(y_test, y_pred, target_names=['0','1']))
+print("CONFUSION MATRIX:")
+sns.heatmap(confusion_matrix(y_test, y_pred), annot=True)
