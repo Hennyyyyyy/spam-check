@@ -1,0 +1,15 @@
+def topic_modelling(self,train_data):
+    '''This function performs lda topic modelling for 2 topics and create trains lda with train data'''
+    vectorizer_bow,bow = self.bag_of_words(train_data)
+    lda_model = self.sklearn.decomposition.LatentDirichletAllocation(n_components=2, learning_method='online', max_iter=20,random_state=100)
+    lda_model.fit(bow)
+    train_lda = lda_model.transform(bow)
+    filename = 'lda_model.sav'
+    pickle.dump(lda_model, open(filename, 'wb'))
+    return lda_model,vectorizer_bow,train_lda
+
+  def perform_lda(self,train_data,test_data):
+    '''This function performs lda on test data'''
+    lda_model,vectorizer_bow,train_lda = self.topic_modelling(train_data)
+    bow = vectorizer_bow.transform(test_data)
+    return lda_model.transform(bow)
