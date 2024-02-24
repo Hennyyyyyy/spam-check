@@ -1,0 +1,12 @@
+def tfidf_train(self,train_data):
+    '''This function creates TFIDF representation of train data'''
+    vectorizer_tfidf = TfidfVectorizer(min_df=10)
+    vectorizer_tfidf.fit(train_data)
+    text_tfidf_train = vectorizer_tfidf.transform(train_data)
+    filename = 'tfidf_model.sav'
+    pickle.dump(vectorizer_tfidf, open(filename, 'wb'))
+    return vectorizer_tfidf,text_tfidf_train
+
+  def tfidf_test(self,tfidf_model,test_data):
+    '''This function creates TFIDF representation of test data'''
+    return tfidf_model.transform(test_data)
