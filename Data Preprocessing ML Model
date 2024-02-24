@@ -1,0 +1,35 @@
+def remove_stopwords(self,docs,stopword_list):
+    '''This function removes the stop words'''
+    clean_docs = []
+    for doc in docs:
+      word_list = word_tokenize(doc)
+      cleaned_txt = [w for w in word_list if not w in email_stopwords]
+      cleaned_string = " ".join(cleaned_txt)
+      clean_docs.append(cleaned_string)
+    return clean_docs
+    
+  def word_count(self,docs):#need to change to corpus
+    '''This function retuns an array of word count in each document'''
+    doc_len = []
+    for doc in docs:
+      doc_len.append(len(doc.split()))
+    return np.array(doc_len)
+
+  def average_word_length(self,docs):
+    '''This function returns an array of average word length in each document'''
+    average_word_length = []
+    for doc in docs:
+      total_length = 0
+      for i in doc.split():
+        total_length += len(i)
+      average_word_length.append(total_length/len(doc.split()))
+    return np.array(average_word_length)
+    
+    def bag_of_words(self,train_data):
+    '''This function creates bag of word representation for train data'''
+    vectorizer_bow = CountVectorizer()
+    vectorizer_bow.fit(train_data)
+    text_bow_train = vectorizer_bow.transform(train_data)
+    filename = 'bow_model.sav'
+    pickle.dump(vectorizer_bow, open(filename, 'wb'))
+    return vectorizer_bow,text_bow_train
