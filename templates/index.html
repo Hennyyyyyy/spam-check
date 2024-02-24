@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spam Checker 9000</title>
+</head>
+<body>
+    <h1>Spam Checker 9000</h1>
+    <form action="/process" method="post">
+        <textarea name="subject" rows="4" cols="50" placeholder="Email Subject"></textarea><br>
+        <textarea name="contents" rows="4" cols="50" placeholder="Email Contents"></textarea><br>
+        <input type="submit" value="Submit">
+    </form>
+    {% if spamornot %}
+        <p><strong>Spam?</strong> {{ spamornot }}</p>
+    {% endif %}
+</body>
+</html>
